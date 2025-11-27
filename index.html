@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directorio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3367D6">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Directorio de Profesores por Áreas</h1>
+        </header>
+        
+        <div class="areas-grid">
+            <a href="ti.html" class="area-card">
+                <h2>Tecnologías de la Información</h2>
+                <p>Ver profesores y horarios del área de TI</p>
+            </a>
+            <a href="contabilidad.html" class="area-card">
+                <h2>Contabilidad</h2>
+                <p>Ver profesores y horarios del área de Contabilidad</p>
+            </a>
+            <a href="administracion.html" class="area-card">
+                <h2>Administración</h2>
+                <p>Ver profesores y horarios del área de Administración</p>
+            </a>
+        </div>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('servicewor.js')
+                .then(respuesta => console.log('Service Worker registrado', respuesta))
+                .catch(err => console.error('Error al registrar el Service Worker', err));
+        }
+
+        fetch('datos.json')
+        .then(res => res.json())
+        .then(data => {
+        console.log('Datos cargados con fetch:', data);
+        })
+        .catch(error => console.error('Error al cargar los datos:', error));
+    </script>    
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker registrado con éxito', reg))
+        .catch(err => console.log('Error al registrar SW', err));
+    });
+  }
+</script>
+</body>
+</body>
+</html>
